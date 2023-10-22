@@ -79,26 +79,22 @@ const CommentCard = ({ data }) => {
     </div>
   );
 };
-const MCommentCard = ({ videoKey }) => {
+const MCommentCard = ({ search }) => {
   const apiKey = "AIzaSyB6HtuqTUCr-Q6gLlT3Do1Ea_K1QagWlzY";
-  const videoId = videoKey;
   const [commentData, setCommentData] = useState();
-
   useEffect(() => {
     youtubeData();
-  }, []);
+  }, [search]);
 
   const youtubeData = async () => {
     const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=30&key=${apiKey}&videoId=${videoId}`
+      `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=30&key=${apiKey}&videoId=${search}`
     );
     const json = await data.json();
     setCommentData(json.items);
-    console.log(json);
-    console.log("json");
   };
   return !commentData
     ? null
-    : commentData.map((item) => <CommentCard key={item} data={item} />);
+    : commentData.map((item) => <CommentCard key={item.id} data={item} />);
 };
 export default MCommentCard;

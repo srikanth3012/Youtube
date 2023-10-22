@@ -41,7 +41,7 @@ const SlideBar = () => {
   return !isMenuOpen ? (
     <>
       {!isToogle ? null : (
-        <div className="pl-3 mt-4">
+        <div className="pl-3 mt-4 ">
           <div className="pl-2 items-center hover:bg-gray-100 rounded-lg ">
             <MdHomeFilled className=" mr-4 h-6 w-6 ml-1" />
             <Link to="/">
@@ -74,7 +74,7 @@ const SlideBar = () => {
     </>
   ) : (
     <>
-      <div className=" w-56  bg-white shadow-2xl shadow-r-xl rounded-md h-[660px] overflow-y-scroll will-change-scroll">
+      <div className=" w-56  bg-white shadow-2xl shadow-r-xl rounded-md h-[660px]  md:h-[340px] lg:h-[420px] xl:h-[557px] 2xl:h-[668px] overflow-y-scroll  scrollbar-thumb-slate-500 scrollbar-thin ">
         <div className="pl-3.5 pr-2 ">
           <div className="shadow-sm">
             <div className="p-2 flex items-center hover:bg-gray-100 rounded-lg">
@@ -118,7 +118,7 @@ const SlideBar = () => {
 
             <div className="p-2 flex items-center hover:bg-gray-100 rounded-lg">
               <BsClock className=" mr-4 h-5 w-5" />
-              <Link to="/feed/history">
+              <Link to="/feed/watch">
                 <h1>Watch Later</h1>
               </Link>
             </div>

@@ -9,6 +9,7 @@ import { CgProfile } from "react-icons/cg";
 import { BsSearch, BsFillMicFill, BsBell } from "react-icons/bs";
 import { TbVideoPlus } from "react-icons/tb";
 import Profile from "./profile";
+import ProgressBar from "./Progressbar";
 const Header = () => {
   const [search, setSearch] = useState("");
   const [searchSuggestion, setSearchSuggestion] = useState([]);
@@ -49,7 +50,7 @@ const Header = () => {
 
   return (
     <>
-      <div className=" flex">
+      <div className=" flex   ">
         <div className="grid grid-flow-col   items-center ">
           <div className="ml-6 flex  col-span-1 items-center">
             <FaBars
@@ -70,7 +71,7 @@ const Header = () => {
           <div className="ml-64">
             <div className="col-span-10  flex py-4 ">
               <input
-                className="border border-gray-400 w-[550px]  h-10 rounded-l-full"
+                className="border border-gray-400 w-[550px] xl:w-[420px] 2xl:w-[550px]  h-10 rounded-l-full pl-5"
                 type="text"
                 placeholder="Search"
                 value={search}
@@ -98,7 +99,7 @@ const Header = () => {
               <div>
                 <ul className="fixed bg-white w-96 rounded-lg">
                   {searchSuggestion.map((item) => (
-                    <Link to={"/results?search_query=" + item} key={item}>
+                    <Link to={"/results?search_query=" + item}>
                       <li className="m-3  flex hover:bg-gray-300" key={item}>
                         <div className="pt-1 pr-1"></div>
                         <BsSearch className="h-3 w-3 mt-1.5 mr-2" />
@@ -126,7 +127,7 @@ const Header = () => {
               {!isProfile ? (
                 " "
               ) : (
-                <div className="fixed bg-gray-100 right-32 top-10 w-72 h-96 rounded-lg">
+                <div className="fixed bg-gray-100 right-[85px] top-10 w-60 h-96 rounded-lg">
                   <Profile />
                 </div>
               )}

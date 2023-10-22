@@ -8,6 +8,9 @@ import { Provider } from "react-redux";
 import store from "./store";
 import SearchResults from "./components/searchResults";
 import History from "./components/History";
+import WatchLater from "./components/WatchLater";
+import ProgressBar from "./components/Progressbar";
+import { useEffect } from "react";
 
 const approuter = createBrowserRouter([
   {
@@ -30,6 +33,10 @@ const approuter = createBrowserRouter([
         path: "/feed/history",
         element: <History />,
       },
+      {
+        path: "/feed/watch",
+        element: <WatchLater />,
+      },
     ],
   },
 ]);
@@ -38,6 +45,9 @@ function App() {
   return (
     <Provider store={store}>
       <div>
+        <div>
+          <ProgressBar />
+        </div>
         <RouterProvider router={approuter} />
       </div>
     </Provider>

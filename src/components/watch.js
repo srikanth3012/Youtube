@@ -4,14 +4,12 @@ import { useSearchParams } from "react-router-dom";
 import { watchtoggle } from "../utills/slideSlicer";
 
 import LiveChart from "./LiveChat";
-import { Youtubedata } from "../utills/constants";
-import {
-  Channeldescriptioncard,
-  WatchVSearchcard,
-} from "../utills/videoResultCard";
+import { Suggestion_videos } from "../utills/constants";
+import { WatchVSearchcard } from "../utills/videoResultCard";
 import { Link } from "react-router-dom";
 import { closetoggle } from "../utills/BacksideSlidebar";
-import MCommentCard from "./maincomment";
+import MCommentCard from "./comments";
+import Videodescriptioncard from "./Videodiscription";
 
 const Watch = () => {
   const [searchParam] = useSearchParams();
@@ -26,7 +24,7 @@ const Watch = () => {
     closeToggle();
   }, []);
 
-  const [Video, setVideo] = useState([]);
+  const [SuggestVideo, setSuggestVideo] = useState([]);
 
   const [param] = useSearchParams();
   const searchItem = param.get("v");
@@ -38,18 +36,16 @@ const Watch = () => {
   }, []);
 
   const youtubeData = async () => {
-    const data = await fetch(Youtubedata);
-    const json = await data.json();
-    setVideo(json.items);
+    const SuggestionVideos = await fetch(Suggestion_videos);
+    const json = await SuggestionVideos.json();
+    setSuggestVideo(json.items);
   };
 
-  return !Video ? (
-    ""
-  ) : (
+  return !SuggestVideo ? null : (
     <>
-      <div className="h-[610px] w-auto overflow-y-scroll flex ">
+      <div className="h-[610px] xl:h-[550px] 2xl:h-[655px] w-auto  overflow-y-scroll flex ">
         <div className="m-5 ml-32">
-          <div className="flex">
+          <div className="flex ">
             <iframe
               width="900"
               height="500"
@@ -67,13 +63,13 @@ const Watch = () => {
           </div>
 
           <div className="flex">
-            <Channeldescriptioncard search={searchItem} list={Video} />
+            <Videodescriptioncard search={searchItem} />
           </div>
 
           <div>
             <div>
               <h1 className="text-lg ">Comments:</h1>
-              <MCommentCard videoKey={searchItem} />
+              <MCommentCard search={searchItem} />
             </div>
           </div>
         </div>
@@ -96,13 +92,13 @@ const Watch = () => {
             </div>
             <div>
               <div className=" flex-col">
-                {Video.map((item) => (
+                {SuggestVideo.map((item) => (
                   <li
                     key={item.id}
                     className=" list-none hover:border border-white "
                   >
-                    <Link to={"/watch?v=" + item.id}>
-                      <WatchVSearchcard info={item} />
+                    <Link to={"/watch?v=" + item.id.videoId}>
+                      <WatchVSearchcard key={item.id.videoId} info={item} />
                     </Link>
                   </li>
                 ))}

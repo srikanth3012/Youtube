@@ -20,14 +20,16 @@ const Video = () => {
     const json = await data.json();
     setVideo(json.items);
   };
+
   return !video ? null : (
     <>
-      <div className="flex flex-wrap h-[610px] overflow-y-scroll ">
+      {/* */}
+      <div className="flex flex-wrap overflow-y-scroll  h-[580px] md:h-[340px] lg:h-[420px] xl:h-[490px] 2xl:h-[590px] no-scrollbar ">
         {!isMenuOpen
           ? video.map((item) => (
               <li
                 key={item.id}
-                className="list-none hover:border border-white-100 hover:bg-gray-100 rounded-lg "
+                className="list-none hover:scale-105 rounded-lg "
               >
                 <Link to={"/watch?v=" + item.id}>
                   <Vcard2 info={item} />
@@ -37,7 +39,7 @@ const Video = () => {
           : video.map((item) => (
               <li
                 key={item.id}
-                className="list-none hover:border border-white-100 hover:bg-gray-100 rounded-lg "
+                className="list-none hover:scale-105 rounded-lg "
               >
                 <Link to={"/watch?v=" + item.id}>
                   <Vcard info={item} />

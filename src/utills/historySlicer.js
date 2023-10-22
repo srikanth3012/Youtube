@@ -7,7 +7,8 @@ const historySlicer = createSlice({
   },
   reducers: {
     historymessages: (state, actions) => {
-      state.HistoryList.push(actions.payload);
+      state.HistoryList.splice(20, 1);
+      state.HistoryList.unshift(actions.payload);
     },
   },
 });

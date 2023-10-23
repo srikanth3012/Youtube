@@ -1,6 +1,7 @@
 import { BiSolidDownload, BiDotsVerticalRounded } from "react-icons/bi";
-import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import { AiOutlineDislike, AiOutlineLike, AiOutlineFlag } from "react-icons/ai";
 import { RiShareForwardLine } from "react-icons/ri";
+import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { historymessages } from "../utills/historySlicer";
 import { useEffect, useState } from "react";
@@ -94,7 +95,7 @@ export const Videodescriptioncard = ({ search }) => {
                 <h1 className="pl-1">Download</h1>
               </div>
 
-              <div className="m-1  bg-slate-200 rounded-3xl w-8  h-8  text-sm items-center hover:bg-gray-300">
+              <div className="m-1  bg-slate-200 rounded-3xl w-8  h-8  text-sm items-center hover:bg-white hover:border border-gray-900">
                 <BiDotsVerticalRounded
                   className="w-7 m-[3px] p-[3px] h-6 "
                   onClick={() => {
@@ -103,16 +104,22 @@ export const Videodescriptioncard = ({ search }) => {
                 />
               </div>
               {!box ? (
-                <div className=" bg-purple-50 w-24 h-20  rounded-2xl">
-                  <div className="m-2">
-                    <button
-                      onClick={() => {
-                        watchlaterslicer(videoId_data);
-                      }}
-                    >
-                      Save
-                    </button>
-                    <h1>Report</h1>
+                <div className=" relative top-16 right-10">
+                  <div className="m-2  bg-gray-200 w-24 p-3 h-20  rounded-2xl">
+                    <div className="flex">
+                      <MdOutlinePlaylistAdd className="mr-1" size={20} />
+                      <button
+                        onClick={() => {
+                          watchlaterslicer(videoId_data);
+                        }}
+                      >
+                        Save
+                      </button>
+                    </div>
+                    <div className="flex">
+                      <AiOutlineFlag className="mr-1" size={20} />
+                      <h1>Report</h1>
+                    </div>
                   </div>
                 </div>
               ) : (

@@ -2,9 +2,10 @@ import React from "react";
 const Vcard = ({ info }) => {
   return (
     <>
-      <div className="m-2 mb-8 w-96 md:w-40 lg:w-[270px] xl:w-[340px] 2xl:w-96 rounded-md h-80 md:h-[500px] lg:h-[400px] xl:h-80 shadow-lg">
+      {/* min-w-[40px] max-w-[395px] min-h-[300px] max-h-96 */}
+      <div className="m-2 mb-8 w-96 md:w-40 lg:w-[270px] xl:w-[340px] 2xl:w-96 h-80 md:h-[500px] lg:h-[400px] xl:h-80 rounded-md shadow-lg">
         <img
-          className="rounded-lg w-96 h-52  "
+          className="rounded-lg w-96 h-52 object-cover "
           alt="logo "
           src={info.snippet.thumbnails.medium.url}
         />

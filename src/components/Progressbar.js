@@ -27,11 +27,10 @@ const ProgressBar = () => {
   return (
     <div className="relative w-full h-1 bg-gray-200 rounded-full">
       <div
-        className="absolute h-1 bg-red-900 rounded-full"
+        className="absolute h-1 bg-red-900 rounded-full transition: width 0.5s ease;"
         style={{ width: `${width}%` }}
       ></div>
     </div>
   );
 };
-
 export default ProgressBar;

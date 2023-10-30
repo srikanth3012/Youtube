@@ -3,7 +3,7 @@ const Vcard = ({ info }) => {
   return (
     <>
       {/* min-w-[40px] max-w-[395px] min-h-[300px] max-h-96 */}
-      <div className="m-2 mb-3 w-96  h-72  rounded-md  hover:scale-105 hover:duration-200 hover:shadow-lg   ">
+      <div className="m-2 mb-3 w-72  h-80  rounded-md  hover:scale-105 hover:duration-200 hover:shadow-lg   ">
         <img
           className="rounded-lg w-96 h-52 object-cover "
           alt="logo "
@@ -23,7 +23,7 @@ const Vcard = ({ info }) => {
 export const Vcard2 = ({ info }) => {
   return (
     <>
-      <div className="m-2 mb-8 w-80 rounded-md h-80 shadow-lg hover:scale-105 hover:duration-200 hover:shadow-lg">
+      <div className="m-2 mb-8 w-64 rounded-md h-[330px] shadow-lg hover:scale-105 hover:duration-200 hover:shadow-lg">
         <img
           className="rounded-lg h-52  "
           alt="logo "

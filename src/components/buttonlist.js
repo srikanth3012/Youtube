@@ -36,29 +36,41 @@ const ButtonList = () => {
     slider.scrollLeft = slider.scrollLeft - 300;
   };
   return (
-    <div className="flex">
+    <div className="grid grid-flow-col">
       <BiChevronLeft
-        className="h-8 w-8 mt-1.5 hover:bg-gray-200 rounded-full"
+        className="h-8 w-8 mt-[3px] ml-1 hover:bg-gray-200 rounded-full"
         onClick={slideLeft}
       />
 
-      <div
-        className="flex overflow-hidden scroll-smooth w-[1200px]  md:w-w-[600px] lg:w-w-[800px] xl:w-[1000px] 2xl:w-[1200px]"
-        id="slider"
-      >
-        {Buttonaray.map((item) => (
-          <Link to={"/results?search_query="}>
-            <button
-              className="hover:bg-gray-400  bg-gray-200 text-sm rounded-md m-1 ml-3 h-10 p-2 w-auto whitespace-pre"
-              key={item}
-            >
-              {item}
-            </button>
-          </Link>
-        ))}
+      <div className="flex overflow-hidden scroll-smooth " id="slider">
+        {Buttonaray.map((item) => {
+          if (item === "All") {
+            return (
+              <Link to={"/"}>
+                <button
+                  className="hover:bg-gray-400  bg-gray-200 text-xs rounded-md m-1 ml-3 h-8 p-2 w-auto whitespace-pre"
+                  key={item}
+                >
+                  {item}
+                </button>
+              </Link>
+            );
+          } else {
+            return (
+              <Link to={"/results?search_query=" + item}>
+                <button
+                  className="hover:bg-gray-400  bg-gray-200 text-xs rounded-md m-1 ml-3 h-8 p-2 w-auto whitespace-pre"
+                  key={item}
+                >
+                  {item}
+                </button>
+              </Link>
+            );
+          }
+        })}
       </div>
       <BiChevronRight
-        className="h-8 w-8 mt-1.5 hover:bg-gray-200 rounded-full"
+        className="h-8 w-8 mt-0.5 hover:bg-gray-200 rounded-full mr-4"
         onClick={slideRight}
       />
     </div>

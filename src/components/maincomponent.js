@@ -3,11 +3,13 @@ import ButtonList from "./buttonlist";
 import Video from "./videocontainer";
 const MainComponent = () => {
   return (
-    <div className="ml-5">
-      <div className="m-2">
+    <div className="ml-2  col-span-11">
+      <div className="m-2 ">
         <ButtonList />
       </div>
-      <Video />
+      <div className="ml-10 ">
+        <Video />
+      </div>
     </div>
   );
 };

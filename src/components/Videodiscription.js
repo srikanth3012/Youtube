@@ -42,7 +42,7 @@ export const Videodescriptioncard = ({ search }) => {
 
   return !videoListInfo ? null : (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <div className=" items-center">
           <div className="items-center">
             <h1 className="font-bold text-xl m-2">
@@ -63,11 +63,11 @@ export const Videodescriptioncard = ({ search }) => {
                 </h1>
                 <h3 className=" text-xs ">
                   {videoListInfo?.statistics?.viewCount / 100}
-                  <span className="pl-1">Subscribers</span>
+                  <span className="pl-1 font-gabarito ">Subscribers</span>
                 </h3>
               </div>
               <div>
-                <h2 className=" text-lg pl-4 w-28 py-1.5 h-10 rounded-full bg-gray-900 text-white font-serif m-2">
+                <h2 className=" text-lg pl-5 w-28 py-1.5 h-10 rounded-full bg-gray-900 text-white font- m-2">
                   Subscribe
                 </h2>
               </div>
@@ -131,7 +131,7 @@ export const Videodescriptioncard = ({ search }) => {
 
         <div>
           {!more ? (
-            <div className="m-1 w-[900px] pr-20 bg-slate-100 rounded-md  shadow-lg">
+            <div className="m-1 w-[950px] pr-20 bg-slate-100 rounded-md  shadow-lg">
               <div className="h-20 overflow-hidden ">
                 <h1 className=" ml-2 text-md font-bold">
                   {videoListInfo?.statistics?.viewCount} Views
@@ -148,7 +148,7 @@ export const Videodescriptioncard = ({ search }) => {
               </button>
             </div>
           ) : (
-            <div className="m-1  w-[900px] pr-20 bg-slate-100 rounded-md shadow-lg">
+            <div className="m-1  w-[950px] pr-20 bg-slate-100 rounded-md shadow-lg">
               <h1>{videoListInfo?.statistics?.viewCount}</h1>
               <h1 className=" text-sm p-2 whitespace-pre-line ">
                 {videoListInfo?.snippet?.description}

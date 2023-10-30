@@ -9,7 +9,7 @@ const WatchLater = () => {
   ) : (
     <div>
       {select.map((videoListInfo) => (
-        <li key={videoListInfo.id} className="flex flex-col">
+        <li key={videoListInfo.id} className="grid grid-cols-11 h-screen">
           <HSearchcard info={videoListInfo} />
         </li>
       ))}

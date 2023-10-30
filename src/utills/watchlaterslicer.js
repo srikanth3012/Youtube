@@ -7,7 +7,7 @@ const WatchLaterSlicer = createSlice({
   },
   reducers: {
     WatchLater: (state, actions) => {
-      state.WatchLaterList.push(actions.payload);
+      state.WatchLaterList.unshift(actions.payload);
     },
   },
 });

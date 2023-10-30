@@ -16,7 +16,7 @@ const History = () => {
     <div className="">
       {uniqueItemsArray.map((item) => (
         <Link to={"/watch?v=" + item.id}>
-          <li key={item.id} className=" list-none hover:border border-white ">
+          <li key={item.id} className=" list-none grid grid-cols-11 h-screen ">
             <HSearchcard info={item} />
           </li>
         </Link>

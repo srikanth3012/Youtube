@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { closetoggle } from "../utills/BacksideSlidebar";
 import MCommentCard from "./comments";
 import Videodescriptioncard from "./Videodiscription";
+import { CgProfile } from "react-icons/cg";
 
 const Watch = () => {
   const [searchParam] = useSearchParams();
@@ -43,11 +44,10 @@ const Watch = () => {
 
   return !SuggestVideo ? null : (
     <>
-      <div className="h-[610px] xl:h-[550px] 2xl:h-[655px] w-auto  overflow-y-scroll flex ">
-        <div className="m-5 ml-32">
+      <div className="h-[610px] xl:h-[550px] 2xl:h-[655px]  grid grid-flow-col">
+        <div className="m-5 ml-10 col-span-8">
           <div className="flex ">
             <iframe
-              width="900"
               height="500"
               src={
                 "https://www.youtube.com/embed/" +
@@ -58,7 +58,7 @@ const Watch = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-              className="rounded-xl"
+              className="rounded-xl  w-[1000px]"
             ></iframe>
           </div>
 
@@ -67,14 +67,13 @@ const Watch = () => {
           </div>
 
           <div>
-            <div>
-              <h1 className="text-lg ">Comments:</h1>
+            <div className="mt-6">
               <MCommentCard search={searchItem} />
             </div>
           </div>
         </div>
-        <div>
-          <div className="">
+        <div className="col-span-4">
+          <div>
             <div>
               <div className="">
                 <div>

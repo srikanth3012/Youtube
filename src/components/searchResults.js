@@ -1,13 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Youtubedata } from "../utills/constants";
+import { SEARCH_RESULTS_API } from "../utills/constants";
 import { Link, useSearchParams } from "react-router-dom";
 import VSearchcard from "../utills/videoResultCard";
-import SearchFilter from "../utills/searchFillter";
 import ButtonList from "./buttonlist";
 
 const SearchResults = () => {
-  const [fillterVideo, setfillterVideo] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
   const [param] = useSearchParams("");
   const searchItem = param.get("search_query");
 
@@ -17,20 +16,20 @@ const SearchResults = () => {
   }, [searchItem]);
 
   const youtubeData = async () => {
-    const data = await fetch(Youtubedata);
+    const data = await fetch(SEARCH_RESULTS_API + `&q=${searchItem}`);
     const json = await data.json();
-    const filtterdata = SearchFilter(searchItem, json.items);
-    setfillterVideo(filtterdata);
+    setSearchResult(json.items);
+    console.log(json.items);
   };
-  return (
+  return !searchResult ? null : (
     <>
-      <div>
+      <div className="col-span-11 ">
         <ButtonList />
 
-        <div className="pl-10">
-          {fillterVideo.map((item) => (
-            <li key={item.id} className=" list-none hover:border border-white ">
-              <Link to={"/watch?v=" + item.id}>
+        <div className="h-[1000px] pl-10">
+          {searchResult.map((item) => (
+            <li key={item.id.etag} className=" list-none   ">
+              <Link to={"/watch?v=" + item.id.videoId}>
                 <VSearchcard info={item} />
               </Link>
             </li>

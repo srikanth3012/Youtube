@@ -7,6 +7,7 @@ import { opentoggle } from "../utills/BacksideSlidebar";
 
 const Video = () => {
   const [video, setVideo] = useState([]);
+  const [page, setPage] = useState("");
   const dispatch = useDispatch();
   dispatch(opentoggle());
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -16,31 +17,46 @@ const Video = () => {
   }, []);
 
   const youtubeData = async () => {
-    const data = await fetch(Youtubedata);
-    const json = await data.json();
-    setVideo(json.items);
+    try {
+      const url =
+        page !== "" ? `${Youtubedata}&pageToken=${page}` : Youtubedata;
+      const data = await fetch(url);
+      const json = await data.json();
+      setPage(json.nextPageToken);
+      setVideo([...video, ...json.items]);
+    } catch (e) {
+      console.log(e);
+    }
   };
+  const handelScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.scrollHeight
+    ) {
+      youtubeData();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handelScroll, true);
+    return () => {
+      window.removeEventListener("scroll", handelScroll, true);
+    };
+  }, [page]);
 
   return !video ? null : (
     <>
-      {/* */}
-      <div className="flex flex-wrap overflow-y-scroll  h-[580px] md:h-[340px] lg:h-[420px] xl:h-[490px] 2xl:h-[590px] no-scrollbar ">
+      <div className="flex flex-wrap overflow-y-scroll h-screen  no-scrollbar">
         {!isMenuOpen
           ? video.map((item) => (
-              <li
-                key={item.id}
-                className="list-none hover:scale-105 rounded-lg "
-              >
+              <li key={item.id} className="list-none  rounded-lg ">
                 <Link to={"/watch?v=" + item.id}>
                   <Vcard2 info={item} />
                 </Link>
               </li>
             ))
           : video.map((item) => (
-              <li
-                key={item.id}
-                className="list-none hover:scale-105 rounded-lg "
-              >
+              <li key={item.id} className="list-none  rounded-lg ">
                 <Link to={"/watch?v=" + item.id}>
                   <Vcard info={item} />
                 </Link>

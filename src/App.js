@@ -10,7 +10,6 @@ import SearchResults from "./components/searchResults";
 import History from "./components/History";
 import WatchLater from "./components/WatchLater";
 import ProgressBar from "./components/Progressbar";
-import { useEffect } from "react";
 
 const approuter = createBrowserRouter([
   {

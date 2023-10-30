@@ -40,41 +40,47 @@ const SlideBar = () => {
 
   return !isMenuOpen ? (
     <>
-      {!isToogle ? null : (
-        <div className="pl-3 mt-4 ">
-          <div className="pl-2 items-center hover:bg-gray-100 rounded-lg ">
-            <MdHomeFilled className=" mr-4 h-6 w-6 ml-1" />
-            <Link to="/">
-              <h1 className="text-xs mt-1.5">Home</h1>
-            </Link>
-          </div>
-          <div className="p-2 items-center hover:bg-gray-100 rounded-lg mt-4">
-            <FiPlayCircle className=" mr-4 h-5 w-5 ml-1 " />
-            <Link to="/">
-              <h1 className="text-xs mt-1.5">Shorts</h1>
-            </Link>
-          </div>
-          <div className="  items-center hover:bg-gray-100 rounded-lg mt-4">
-            <BsCollectionPlay className=" mr-4 h-5 w-5 ml-3" />
-            <Link to="/">
-              <h1 className="text-xs mt-1.5">Subscriptions</h1>
-            </Link>
-          </div>
-
-          <div>
-            <div className="p-2 items-center hover:bg-gray-100 rounded-lg mt-4">
-              <MdOutlineVideoLibrary className=" mr-4 h-5 w-5 ml-1" />
+      <div
+        className={`duration-500 ease-linear ${
+          !isToogle ? `left-[-100]` : `left-0`
+        }`}
+      >
+        {!isToogle ? null : (
+          <div className="pl-3 mt-4 ">
+            <div className="pl-2 items-center hover:bg-gray-100 rounded-lg ">
+              <MdHomeFilled className=" mr-4 h-6 w-6 ml-1" />
               <Link to="/">
-                <h1 className="text-xs mt-1.5">Library</h1>
+                <h1 className="text-xs mt-1.5">Home</h1>
               </Link>
             </div>
+            <div className="p-2 items-center hover:bg-gray-100 rounded-lg mt-4">
+              <FiPlayCircle className=" mr-4 h-5 w-5 ml-1 " />
+              <Link to="/">
+                <h1 className="text-xs mt-1.5">Shorts</h1>
+              </Link>
+            </div>
+            <div className="  items-center hover:bg-gray-100 rounded-lg mt-4">
+              <BsCollectionPlay className=" mr-4 h-5 w-5 ml-3" />
+              <Link to="/">
+                <h1 className="text-xs mt-1.5">Subscriptions</h1>
+              </Link>
+            </div>
+
+            <div>
+              <div className="p-2 items-center hover:bg-gray-100 rounded-lg mt-4">
+                <MdOutlineVideoLibrary className=" mr-4 h-5 w-5 ml-1" />
+                <Link to="/">
+                  <h1 className="text-xs mt-1.5">Library</h1>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   ) : (
     <>
-      <div className=" w-56  bg-white shadow-2xl shadow-r-xl rounded-md h-[660px]  md:h-[340px] lg:h-[420px] xl:h-[557px] 2xl:h-[668px] overflow-y-scroll  scrollbar-thumb-slate-500 scrollbar-thin ">
+      <div className=" w-48 h-screen bg-white shadow-2xl shadow-r-xl rounded-md   overflow-y-scroll  scrollbar-thumb-slate-500 scrollbar-thin scrollbar-rounded-xl ">
         <div className="pl-3.5 pr-2 ">
           <div className="shadow-sm">
             <div className="p-2 flex items-center hover:bg-gray-100 rounded-lg">

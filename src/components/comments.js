@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
+import { AiOutlineDislike, AiOutlineLike, AiOutlineFlag } from "react-icons/ai";
+import { Comments_data } from "../utills/constants";
 
 const RepliesCard = ({ data }) => {
   const [replies, setReplies] = useState(false);
@@ -62,6 +64,16 @@ const CommentCard = ({ data }) => {
         <p className="text-sm w-[700px]">
           {data.snippet.topLevelComment.snippet.textOriginal}
         </p>
+        <div className=" pt-1  flex  rounded-l-3xl  h-8 text-sm items-center m-2">
+          <AiOutlineLike className="w-10 h-6" />
+          <h1 className="text-xs">123</h1>
+          <h1 className="text-xs pl-2">|</h1>
+          <div className="shadow-gray-900 mt-0.5">
+            <AiOutlineDislike className="w-10 h-6 transform scale-x-[-1] " />
+          </div>
+          <h1 className="text-xs pl-2 text-blue-900">Reply</h1>
+        </div>
+
         {!data.replies ? null : (
           <div>
             <button
@@ -80,21 +92,31 @@ const CommentCard = ({ data }) => {
   );
 };
 const MCommentCard = ({ search }) => {
-  const apiKey = "AIzaSyB6HtuqTUCr-Q6gLlT3Do1Ea_K1QagWlzY";
   const [commentData, setCommentData] = useState();
   useEffect(() => {
     youtubeData();
   }, [search]);
 
   const youtubeData = async () => {
-    const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=30&key=${apiKey}&videoId=${search}`
-    );
+    const data = await fetch(Comments_data + `&videoId=${search}`);
     const json = await data.json();
     setCommentData(json.items);
   };
-  return !commentData
-    ? null
-    : commentData.map((item) => <CommentCard key={item.id} data={item} />);
+  return !commentData ? null : (
+    <>
+      <h1 className="text-lg font-bold">{commentData.length} Comments:</h1>
+      <div className="flex mt-8 mb-8">
+        <CgProfile className="w-16 h-8" />{" "}
+        <input
+          className=" border border-b-4 w-[800px]"
+          type="text"
+          value="Add a comment"
+        />
+      </div>
+      {commentData.map((item) => (
+        <CommentCard key={item.id} data={item} />
+      ))}
+    </>
+  );
 };
 export default MCommentCard;

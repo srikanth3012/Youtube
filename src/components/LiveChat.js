@@ -6,7 +6,7 @@ import generate, { liveMessageGenerate } from "../utills/helper";
 
 const LiveChart = () => {
   const [liveInput, setliveInput] = useState("");
-  console.log(liveInput);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const i = setInterval(() => {

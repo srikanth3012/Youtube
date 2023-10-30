@@ -31,13 +31,13 @@ export const Videodescriptioncard = ({ search }) => {
   }
   useEffect(() => {
     History_page();
+    // eslint-disable-next-line
   }, [search]);
   const History_page = async () => {
     const video_data = await fetch(Histriy_video_api + `&id=${search}`);
     const json2 = await video_data.json();
     setvideoId_data(json2?.items[0]);
     dispatcher(historymessages(json2?.items[0]));
-    console.log(json2?.items[0]);
   };
 
   return !videoListInfo ? null : (

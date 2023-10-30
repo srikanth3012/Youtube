@@ -1,12 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { HSearchcard } from "../utills/videoResultCard";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const History = () => {
   const select = useSelector((store) => store.history.HistoryList);
   const uniqueItems = new Set(select);
-  console.log(uniqueItems);
   const uniqueItemsArray = Array.from(uniqueItems);
   return !uniqueItemsArray ? (
     <div>

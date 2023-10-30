@@ -19,7 +19,6 @@ const SearchResults = () => {
     const data = await fetch(SEARCH_RESULTS_API + `&q=${searchItem}`);
     const json = await data.json();
     setSearchResult(json.items);
-    console.log(json.items);
   };
   return !searchResult ? null : (
     <>

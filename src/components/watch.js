@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { closetoggle } from "../utills/BacksideSlidebar";
 import MCommentCard from "./comments";
 import Videodescriptioncard from "./Videodiscription";
-import { CgProfile } from "react-icons/cg";
 
 const Watch = () => {
   const [searchParam] = useSearchParams();
@@ -23,6 +22,7 @@ const Watch = () => {
 
   useEffect(() => {
     closeToggle();
+    // eslint-disable-next-line
   }, []);
 
   const [SuggestVideo, setSuggestVideo] = useState([]);

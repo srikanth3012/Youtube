@@ -80,10 +80,10 @@ const SlideBar = () => {
     </>
   ) : (
     <>
-      <div className=" w-48 h-screen bg-white shadow-2xl shadow-r-xl rounded-md   overflow-y-scroll  scrollbar-thumb-slate-500 scrollbar-thin scrollbar-rounded-xl ">
-        <div className="pl-3.5 pr-2 ">
+      <div className=" w-52 h-screen rounded-md   overflow-y-scroll  scrollbar-thumb-slate-500 scrollbar-thin scrollbar-rounded-xl ">
+        <div className="pl-2 pr-2 ">
           <div className="shadow-sm">
-            <div className="p-2 flex items-center hover:bg-gray-100 rounded-lg">
+            <div className="p-2  flex items-center hover:bg-gray-100 rounded-lg">
               <MdHomeFilled className=" mr-4 h-6 w-6" />
               <Link to="/">
                 <h1>Home</h1>

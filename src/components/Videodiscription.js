@@ -16,9 +16,13 @@ export const Videodescriptioncard = ({ search }) => {
   const [videoId_data, setvideoId_data] = useState("");
   useEffect(() => {
     youtubeData();
-
     // eslint-disable-next-line
   }, [search]);
+  useEffect(() => {
+    const title = document.getElementById("mainTitle");
+    console.log(title, "testing");
+    title.innerText = videoListInfo?.snippet?.title;
+  }, [videoListInfo]);
 
   const youtubeData = async () => {
     const data = await fetch(video_info + `&id=${search}`);
@@ -97,15 +101,19 @@ export const Videodescriptioncard = ({ search }) => {
 
               <div className="m-1  bg-slate-200 rounded-3xl w-8  h-8  text-sm items-center hover:bg-white hover:border border-gray-900">
                 <BiDotsVerticalRounded
-                  className="w-7 m-[3px] p-[3px] h-6 "
+                  className="w-7 m-[3px]  h-5 mt-1.5 "
                   onClick={() => {
                     !box ? setBox(true) : setBox(false);
                   }}
                 />
               </div>
               {!box ? (
-                <div className=" relative top-16 right-10">
-                  <div className="m-2  bg-gray-200 w-24 p-3 h-20  rounded-2xl">
+                <div className=" absolute z-10 top-70 mt-30  ">
+                  <div className="m-2  bg-gray-200 w-32 p-5 h-auto  rounded-2xl flex  flex-col gap-2">
+                    <div className="flex">
+                      <AiOutlineFlag className="mr-1" size={20} />
+                      <h1>Download</h1>
+                    </div>
                     <div className="flex">
                       <MdOutlinePlaylistAdd className="mr-1" size={20} />
                       <button
@@ -131,7 +139,7 @@ export const Videodescriptioncard = ({ search }) => {
 
         <div>
           {!more ? (
-            <div className="m-1 w-[950px] pr-20 bg-slate-100 rounded-md  shadow-lg">
+            <div className="m-1 w-[950px] pr-20 p-3 bg-slate-100 rounded-md  ">
               <div className="h-20 overflow-hidden ">
                 <h1 className=" ml-2 text-md font-bold">
                   {videoListInfo?.statistics?.viewCount} Views
@@ -148,7 +156,7 @@ export const Videodescriptioncard = ({ search }) => {
               </button>
             </div>
           ) : (
-            <div className="m-1  w-[950px] pr-20 bg-slate-100 rounded-md shadow-lg">
+            <div className="m-1  w-[950px] pr-20 p-3 bg-slate-100 rounded-md shadow-lg">
               <h1>{videoListInfo?.statistics?.viewCount}</h1>
               <h1 className=" text-sm p-2 whitespace-pre-line ">
                 {videoListInfo?.snippet?.description}

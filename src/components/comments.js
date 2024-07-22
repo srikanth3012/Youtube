@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineDislike, AiOutlineLike, AiOutlineFlag } from "react-icons/ai";
+import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { Comments_data } from "../utills/constants";
+import { IoEllipsisVerticalSharp } from "react-icons/io5";
 
 const RepliesCard = ({ data }) => {
   const [replies, setReplies] = useState(false);
@@ -59,7 +60,7 @@ const CommentCard = ({ data }) => {
 
       <div className="pl-2 pb-1">
         <p className="text-sm font-semibold">
-          @{data.snippet.topLevelComment.snippet.authorDisplayName}
+          {data.snippet.topLevelComment.snippet.authorDisplayName}
         </p>
         <p className="text-sm w-[700px]">
           {data.snippet.topLevelComment.snippet.textOriginal}
@@ -88,6 +89,7 @@ const CommentCard = ({ data }) => {
           </div>
         )}
       </div>
+      <IoEllipsisVerticalSharp className="grid-cols-3 w-8 h-5 mt-2" />
     </div>
   );
 };
@@ -108,7 +110,7 @@ const MCommentCard = ({ search }) => {
       <div className="flex mt-8 mb-8">
         <CgProfile className="w-16 h-8" />{" "}
         <input
-          className=" border border-b-4 w-[800px]"
+          className="border-b-2 w-[800px]"
           type="text"
           value="Add a comment"
         />

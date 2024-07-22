@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 const ButtonList = () => {
+  const [rightButton, setRightButton] = useState(false);
   const Buttonaray = [
     "All",
     "Mixes",
@@ -30,25 +31,34 @@ const ButtonList = () => {
   const slideRight = () => {
     let slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 300;
+
+    if (slider.scrollLeft >= 0) setRightButton(true);
   };
   const slideLeft = () => {
     let slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 300;
+
+    if (slider.scrollLeft <= 300) setRightButton(false);
   };
   return (
     <div className="grid grid-flow-col">
-      <BiChevronLeft
-        className="h-8 w-8 mt-[3px] ml-1 hover:bg-gray-200 rounded-full"
-        onClick={slideLeft}
-      />
+      {rightButton && (
+        <BiChevronLeft
+          className="h-8 w-8 mt-[3px] ml-1 hover:bg-gray-200 rounded-full"
+          onClick={slideLeft}
+        />
+      )}
 
-      <div className="flex overflow-hidden scroll-smooth " id="slider">
+      <div
+        className="flex overflow-hidden scroll-smooth  w-[98%] ml-3"
+        id="slider"
+      >
         {Buttonaray.map((item) => {
           if (item === "All") {
             return (
               <Link to={"/"}>
                 <button
-                  className="hover:bg-gray-400  bg-gray-200 text-xs rounded-md m-1 ml-3 h-8 p-2 w-auto whitespace-pre"
+                  className="hover:bg-gray-400  bg-gray-200 text-sm font-semibold rounded-md m-1 ml-3 p-2 w-auto whitespace-pre"
                   key={item}
                 >
                   {item}
@@ -59,7 +69,7 @@ const ButtonList = () => {
             return (
               <Link to={"/results?search_query=" + item}>
                 <button
-                  className="hover:bg-gray-400  bg-gray-200 text-xs rounded-md m-1 ml-3 h-8 p-2 w-auto whitespace-pre"
+                  className="hover:bg-gray-400  bg-gray-200 text-sm font-semibold rounded-md m-1 ml-3  p-2 w-auto whitespace-pre"
                   key={item}
                 >
                   {item}
@@ -70,7 +80,7 @@ const ButtonList = () => {
         })}
       </div>
       <BiChevronRight
-        className="h-8 w-8 mt-0.5 hover:bg-gray-200 rounded-full mr-4"
+        className="h-8 w-8 mt-0.5 hover:bg-gray-200 rounded-full mr-4 p-0.5"
         onClick={slideRight}
       />
     </div>

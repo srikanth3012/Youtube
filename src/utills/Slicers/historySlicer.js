@@ -7,8 +7,11 @@ const historySlicer = createSlice({
   },
   reducers: {
     historymessages: (state, actions) => {
-      state.HistoryList.splice(20, 1);
-      state.HistoryList.unshift(actions.payload);
+      const status =
+        state.HistoryList &&
+        state.HistoryList.find((item) => item?.id == actions.payload.id);
+
+      if (!status) state.HistoryList.unshift(actions.payload);
     },
   },
 });

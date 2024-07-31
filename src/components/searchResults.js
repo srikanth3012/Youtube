@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { SEARCH_RESULTS_API } from "../utills/constants";
 import { Link, useSearchParams } from "react-router-dom";
-import VSearchcard from "../utills/videoResultCard";
+import VSearchcard from "./Cards/videoResultCard";
 import ButtonList from "./buttonlist";
 
 const SearchResults = () => {

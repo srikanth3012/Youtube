@@ -62,7 +62,7 @@ const CommentCard = ({ data }) => {
         <p className="text-sm font-semibold">
           {data.snippet.topLevelComment.snippet.authorDisplayName}
         </p>
-        <p className="text-sm w-[700px]">
+        <p className="text-sm w-[700px] overflow-hidden">
           {data.snippet.topLevelComment.snippet.textOriginal}
         </p>
         <div className=" pt-1  flex  rounded-l-3xl  h-8 text-sm items-center m-2">

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { appmessages } from "../utills/LiveChatSlicer";
+import { appmessages } from "../utills/Slicers/LiveChatSlicer";
 import { useEffect, useState } from "react";
-import LiveChatCard from "../utills/livechatcard";
+import LiveChatCard from "./Cards/livechatcard";
 import generate, { liveMessageGenerate } from "../utills/helper";
 
 const LiveChart = () => {

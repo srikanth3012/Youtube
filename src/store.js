@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import slideSlice from "./utills/slideSlicer";
-import searchSlicer from "./utills/searchSlicer";
-import LiveChatSlicer from "./utills/LiveChatSlicer";
-import historySlicer from "./utills/historySlicer";
-import BackslideSlice from "./utills/BacksideSlidebar";
-import watchlaterslicer from "./utills/watchlaterslicer";
+import slideSlice from "./utills/Slicers/slideSlicer";
+import searchSlicer from "./utills/Slicers/searchSlicer";
+import LiveChatSlicer from "./utills/Slicers/LiveChatSlicer";
+import historySlicer from "./utills/Slicers/historySlicer";
+import BackslideSlice from "./utills/Slicers/BacksideSlidebar";
+import watchlaterslicer from "./utills/Slicers/watchlaterslicer";
 
 const store = configureStore({
   reducer: {

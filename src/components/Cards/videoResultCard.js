@@ -29,13 +29,13 @@ const VSearchcard = ({ info }) => {
 export const HSearchcard = ({ info }) => {
   return (
     <>
-      <div className="  flex m-2 w-full rounded-md h-52  hover:scale-105 hover:duration-200 hover:shadow-lg ">
+      <div className="flex m-2 w-full rounded-md   ">
         <img
-          className="m-2 w-80 h-48 rounded-lg"
+          className="m-2 w-52 h-28 rounded-lg"
           alt="logo "
           src={info.snippet.thumbnails.medium.url}
         />
-        <div className="pt-10">
+        <div className="pt-3 w-[60%]">
           <ul className="list-none">
             <li className="font-bold text-sm pl-2 pr-2">
               {info.snippet.title}
@@ -43,8 +43,10 @@ export const HSearchcard = ({ info }) => {
             <li className="font-semibold text-xs pl-2">
               {info.snippet.channelTitle}
             </li>
+            <li className="pl-2 text-gray-500">2.9M views . 1 month ago</li>
           </ul>
         </div>
+        <IoEllipsisVerticalSharp className="h-12" />
       </div>
     </>
   );

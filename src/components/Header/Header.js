@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenu } from "../utills/slideSlicer";
-import { Youtube_Search } from "../utills/constants";
-import { chaceResults } from "../utills/searchSlicer";
+import { toggleMenu } from "../../utills/Slicers/slideSlicer";
+import { Youtube_Search } from "../../utills/constants";
+import { chaceResults } from "../../utills/Slicers/searchSlicer";
 import { Link } from "react-router-dom";
 import { HiBars3 } from "react-icons/hi2";
 import { CgProfile } from "react-icons/cg";
@@ -60,7 +60,7 @@ const Header = () => {
     <>
       <div className="grid grid-flow-col w-screen justify-items-center ">
         <div className="flex ">
-          <div className="col-span-1  flex ml-[-11px] mt-[-12px] items-center">
+          <div className="col-span-1  flex ml-[-11px]  items-center">
             <HiBars3
               className="h-10 cursor-pointer w-6 "
               onClick={() => {

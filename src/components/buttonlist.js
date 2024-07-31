@@ -50,28 +50,22 @@ const ButtonList = () => {
       )}
 
       <div
-        className="flex overflow-hidden scroll-smooth  w-[98%] ml-3"
+        className="flex overflow-hidden scroll-smooth  w-[98%] ml-3 "
         id="slider"
       >
         {Buttonaray.map((item) => {
           if (item === "All") {
             return (
-              <Link to={"/"}>
-                <button
-                  className="hover:bg-gray-400  bg-gray-200 text-sm font-semibold rounded-md m-1 ml-3 p-2 w-auto whitespace-pre"
-                  key={item}
-                >
+              <Link to={"/"} key={item}>
+                <button className="hover:bg-gray-400  bg-gray-200 text-sm font-semibold rounded-md m-1 ml-3 p-2 w-auto whitespace-pre">
                   {item}
                 </button>
               </Link>
             );
           } else {
             return (
-              <Link to={"/results?search_query=" + item}>
-                <button
-                  className="hover:bg-gray-400  bg-gray-200 text-sm font-semibold rounded-md m-1 ml-3  p-2 w-auto whitespace-pre"
-                  key={item}
-                >
+              <Link to={"/results?search_query=" + item} key={item}>
+                <button className="hover:bg-gray-400  bg-gray-200 text-sm font-semibold rounded-md m-1 ml-3  p-2 w-auto whitespace-pre">
                   {item}
                 </button>
               </Link>

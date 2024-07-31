@@ -7,8 +7,8 @@ import Watch from "./components/watch";
 import { Provider } from "react-redux";
 import store from "./store";
 import SearchResults from "./components/searchResults";
-import History from "./components/History";
-import WatchLater from "./components/WatchLater";
+import History from "./components/Catgory/History";
+import WatchLater from "./components/Catgory/WatchLater";
 import ProgressBar from "./components/Progressbar";
 
 const approuter = createBrowserRouter([
